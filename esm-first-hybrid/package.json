@@ -1,0 +1,25 @@
+{
+  "name": "esm-first-hybrid",
+  "version": "1.0.0",
+  "description": "This is an example of how an esm-first hybrid package works.",
+  "type": "module",
+  "main": "./cjs/entry.js",
+  "exports": {
+    ".": {
+      "require": "./cjs/entry.js",
+      "default": "./esm/entry.js"
+    }
+  },
+  "module": "./esm/entry.js",
+  "scripts": {
+    "build": "npx babel esm/lib --out-dir ./cjs/dist --ignore \"src/**/*.spec.js\",\"src/**/*.test.js\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "7.13.16",
+    "@babel/core": "7.13.16",
+    "@babel/plugin-transform-modules-commonjs": "7.13.8"
+  }
+}
